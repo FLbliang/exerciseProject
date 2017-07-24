@@ -16,8 +16,7 @@
 	var recordDis = 0;
 	var timer = null;
 	var autoTimer = null;
-	var waitTimer = null;
-	var touchFlag = false;
+
 	objs.flag = true;
 	for(var i = 0; i < oShowLi.length; i++) {
 		oShowLi[i].style.width = Math.floor(showWidth) + "px";
@@ -28,41 +27,30 @@
 	}
 
 	oShow.addEventListener("touchstart", function(ev) {
+		var oEvent = ev || event;
+		oEvent.cancelBubble = true;
 		startX = ev.changedTouches[0].clientX - oShow.offsetLeft;
 		clearInterval(autoTimer);
 		clearInterval(objs.timer);
 		recordDis = 0;
-		touchFlag = true;
 
 	}, false);
 
 	oShow.addEventListener("touchmove", function(ev) {
-		if(!touchFlag){
-			return;
-		}
+		var oEvent = ev || event;
+		oEvent.cancelBubble = true;
 		clearInterval(autoTimer);
 		clearInterval(objs.timer);
 		endX = ev.changedTouches[0].clientX - oShow.offsetLeft;
 		moveX = endX - startX;
 		recordDis += moveX;
 		setStyle(oShow, "left", moveX + oShow.offsetLeft);
-		clearInterval(waitTimer);
-		waitTimer = setInterval(function() {
-			touchFlag = false;
-			move();
-			autoPlay();
-			clearInterval(waitTimer);
-		}, 3000);
 
 	}, false);
-	
-	
 
-	oShow.addEventListener("touchend", function() {
-		if(!touchFlag){
-			return;
-		}
-		clearInterval(waitTimer);
+	oShow.addEventListener("touchend", function(ev) {
+		var oEvent = ev || event;
+		oEvent.cancelBubble = true;
 		if(recordDis > 0 && Math.abs(recordDis) >= oShowLi[0].offsetWidth / 3) {
 
 			index = --index % (oBtnShow.length * 2);

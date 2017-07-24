@@ -132,19 +132,19 @@ window.onload = function() {
 		autoPlay();
 
 		var startX, endX;
-		var waitTimer = null;
 
 		for(var i = 0; i < oLi.length; i++) {
 			oLi[i].index = i;
 			oLi[i].addEventListener("touchstart", function(ev) {
 				var oEvent = ev || event;
+				oEvent.cancelBubble = true;
 				startX = oEvent.changedTouches[0].clientX - parseInt(getStyle(this, "left"));
 				clearInterval(timer);
-				touchFlag = true;
 			}, false);
 
 			oLi[i].addEventListener("touchmove", function(ev) {
 				var oEvent = ev || event;
+				oEvent.cancelBubble = true;
 				endX = oEvent.changedTouches[0].clientX - parseInt(getStyle(this, "left"));
 				var changeDis = endX - startX;
 
@@ -165,21 +165,17 @@ window.onload = function() {
 					}
 
 				}
-				clearInterval(waitTimer);
-				waitTimer = setInterval(function(){
-					autoPlay();
-					clearInterval(waitTimer);
-				}, 3000);
+				
 
 			}, false);
 
-			oLi[i].addEventListener("touchend", function() {
-
+			oLi[i].addEventListener("touchend", function(ev) {
+				var oEvent = ev || event;
+				oEvent.cancelBubble = true;
 				var dir = endX - startX;
 				if(dir) {
 					dir > 0 ? flag = "right" : flag = "left";
 				}
-				clearInterval(waitTimer);
 				autoPlay();
 			}, false);
 		}
@@ -207,7 +203,7 @@ window.onload = function() {
 					adjust(flag);
 				}
 
-			}, 100);
+			}, 88);
 		}
 
 		function judge() {
