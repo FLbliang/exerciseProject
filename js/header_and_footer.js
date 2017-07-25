@@ -23,13 +23,40 @@
 	var oNavBtn = $(".footer-nav");
 	var oFooterShow = $(".footer-show");
 	var oFooterNavClose = $(".footer-nav-close");
+	var showFlag = false;
 	if(oNavBtn) {
-		oNavBtn.addEventListener("touchstart", function() {
-			oFooterShow.style.display = "block";
+		oNavBtn.addEventListener("touchstart", function(ev) {
+			var oEvent = ev || event;
+			oEvent.cancelBubble = true;
+			if(showFlag){
+				oFooterShow.style.display = "none";
+			}else{
+				oFooterShow.style.display = "block";
+			}
+			showFlag = !showFlag;
+
+		}, false);
+		
+		oFooterShow.addEventListener("touchstart", function(ev){
+			var oEvent = ev || event;
+			oEvent.cancelBubble = true;
+			
+		}, false);
+		
+		oFooterNavClose.addEventListener("touchstart", function(ev){
+			var oEvent = ev || event;
+			oEvent.cancelBubble = true;
+			oFooterShow.style.display = "none";
+			showFlag = false;
+			oEvent.preventDefault();
 		}, false);
 
-		oFooterNavClose.addEventListener("touchstart", function() {
+		document.addEventListener("touchstart", function(ev) {
+			if(!showFlag) {
+				return;
+			}
 			oFooterShow.style.display = "none";
+			showFlag = false;
 		}, false);
 	}
 
@@ -41,5 +68,3 @@
 	html.style.fontSize = Math.floor(hWidth / 20) + "px";
 
 })();
-
-

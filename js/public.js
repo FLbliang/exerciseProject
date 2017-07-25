@@ -26,23 +26,37 @@
 		oBtnShow[i].index = i;
 	}
 
+	var moveFlag = false;
+	var judgeX = true;
+
 	oShow.addEventListener("touchstart", function(ev) {
 		var oEvent = ev || event;
-		oEvent.cancelBubble = true;
 		startX = ev.changedTouches[0].clientX - oShow.offsetLeft;
-		clearInterval(autoTimer);
-		clearInterval(objs.timer);
 		recordDis = 0;
 
 	}, false);
 
 	oShow.addEventListener("touchmove", function(ev) {
+
+		if(!judgeX) {
+			return;
+		}
+
 		var oEvent = ev || event;
-		oEvent.cancelBubble = true;
-		clearInterval(autoTimer);
-		clearInterval(objs.timer);
 		endX = ev.changedTouches[0].clientX - oShow.offsetLeft;
 		moveX = endX - startX;
+		if(!moveFlag) {
+			if(Math.abs(endX - startX) > 2) {
+				judgeX = true;
+			} else {
+				judgeX = false;
+				return;
+			}
+			moveFlag = true;
+		}
+		oEvent.preventDefault();
+		clearInterval(autoTimer);
+		clearInterval(objs.timer);
 		recordDis += moveX;
 		setStyle(oShow, "left", moveX + oShow.offsetLeft);
 
@@ -66,6 +80,8 @@
 
 			moveSpeed = 20;
 		}
+		moveFlag = false;
+		judgeX = true;
 		move();
 		autoPlay();
 

@@ -182,7 +182,7 @@ html {
   height: 12.63888889rem;
 }
 .about_contact {
-  padding-bottom: 1.83333333rem;
+  overflow: hidden;
 }
 .about_contact .about_contact_content .about_contact_content_top {
   width: 100%;
@@ -205,6 +205,7 @@ html {
 }
 .about_contact .about_contact_content form {
   text-align: center;
+  height: 19.77777778rem;
 }
 .about_contact .about_contact_content form .about_contact_content_bottom {
   width: 17.44444444rem;
@@ -239,4 +240,74 @@ html {
   color: #fff;
   font-size: 0.77777778rem;
   margin-top: 1.11111111rem;
+}
+.about_Branch {
+  height: 19.77777778rem;
+  overflow: hidden;
+  position: relative;
+}
+.about_Branch ul {
+  height: 28.33333333rem;
+  position: absolute;
+  top: 0rem;
+}
+.about_Branch ul li {
+  height: 4.16666667rem;
+  padding: 0.55555556rem 0.83333333rem;
+  box-sizing: border-box;
+  margin-bottom: 0.55555556rem;
+}
+.about_Branch ul li img {
+  width: 5.55555556rem;
+  height: 4.16666667rem;
+  float: left;
+  margin-right: 0.55555556rem;
+}
+.about_Branch_text h3 {
+  color: #74c5be;
+  font-size: 0.66666667rem;
+  margin-bottom: 0.72222222rem;
+}
+.about_Branch_text p {
+  color: #585757;
+  font-size: 0.55555556rem;
+}
+.about_contact_zhaopin {
+  padding-left: 0.55555556rem;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+.about_contact_zhaopin li h3 {
+  font-size: 0.61111111rem;
+  color: #585757;
+  margin-bottom: 1rem;
+}
+.about_contact_zhaopin > li ul li {
+  float: left;
+  font-size: 0.5rem;
+  width: 23%;
+  margin-left: 1rem;
+}
+.about_contact_zhaopin > li ul li:first-child {
+  border-right: 1px solid #ccc;
+}
+.about_contact_zhaopin > li ul li:nth-child(2) {
+  border-right: 1px solid #ccc;
+}
+.about_contact_zhaopin .about_contact_zhaopin_bottom {
+  margin-top: 1.94444444rem;
+}
+.about_contact_zhaopin li p {
+  padding: 1.05555556rem;
+  font-size: 0.5rem;
+  color: #585757;
+  line-height: 1.66666667rem;
+  box-sizing: border-box;
+}
+.about_contact_img {
+  width: 100%;
+  height: 100%;
+}
+.form {
+  overflow: hidden;
 }

@@ -132,20 +132,38 @@ window.onload = function() {
 		autoPlay();
 
 		var startX, endX;
+		var moveFlag = false;
+		var judgeX = true;
 
 		for(var i = 0; i < oLi.length; i++) {
 			oLi[i].index = i;
 			oLi[i].addEventListener("touchstart", function(ev) {
 				var oEvent = ev || event;
-				oEvent.cancelBubble = true;
 				startX = oEvent.changedTouches[0].clientX - parseInt(getStyle(this, "left"));
-				clearInterval(timer);
 			}, false);
 
 			oLi[i].addEventListener("touchmove", function(ev) {
+
+				if(!judgeX) {
+					return;
+				}
+
 				var oEvent = ev || event;
-				oEvent.cancelBubble = true;
 				endX = oEvent.changedTouches[0].clientX - parseInt(getStyle(this, "left"));
+
+				if(!moveFlag) {
+					if(Math.abs(endX - startX) > 2) {
+
+						judgeX = true;
+					} else {
+						judgeX = false;
+						return;
+					}
+					moveFlag = true;
+				}
+				oEvent.preventDefault();
+				clearInterval(timer);
+				oEvent.preventDefault();
 				var changeDis = endX - startX;
 
 				if(changeDis > hWidth || changeDis < -hWidth) {
@@ -165,7 +183,6 @@ window.onload = function() {
 					}
 
 				}
-				
 
 			}, false);
 
@@ -176,6 +193,8 @@ window.onload = function() {
 				if(dir) {
 					dir > 0 ? flag = "right" : flag = "left";
 				}
+				moveFlag = false;
+				judgeX = true;
 				autoPlay();
 			}, false);
 		}

@@ -167,6 +167,7 @@ li {
 .footer-top {
     padding: 10 / @rem / @rem;
     height: 280 / @rem;
+    margin-bottom: 78 / @rem;
     background: url("../img/footerImg.png") no-repeat;
     background-size: cover;
 }
@@ -190,8 +191,10 @@ li {
 }
 .footer-bottom {
     height: 78 / @rem;
-    overflow: hidden;
     background: #74c5be;
+    position: fixed;
+    z-index: 6666;
+    bottom: 0;
 }
 .footer-bottom-box {
     height: 70 / @rem;
@@ -237,6 +240,7 @@ li {
     right: 50 / @rem;
     bottom: 88 / @rem;
     display: none;
+    z-index: 6666;
 }
 .footer-show-box {
     width: 380 / @rem;

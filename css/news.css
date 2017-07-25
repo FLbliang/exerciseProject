@@ -1,6 +1,6 @@
 .news {
-  margin-top: 0.55555556rem;
-  margin-bottom: 0.55555556rem;
+  margin-top: 1.66666667rem;
+  margin-bottom: 1.66666667rem;
 }
 .news_img {
   overflow: hidden;
@@ -20,11 +20,11 @@
   text-align: left;
 }
 .newsclassify .newsclassify_tab {
-  margin-bottom: 0.55555556rem;
+  margin-bottom: 0.83333333rem;
 }
 .newsclassify .newsclassify_tab_title {
-  line-height: 1.38888889rem;
-  height: 1.38888889rem;
+  line-height: 1.66666667rem;
+  height: 1.66666667rem;
   text-indent: 0.55555556rem;
   background: url(../img/news/newsclassify/0.png) no-repeat 18.16666667rem center #74c5be;
   background-size: 0.30555556rem 0.55555556rem;
