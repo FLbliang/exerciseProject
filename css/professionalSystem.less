@@ -1,5 +1,9 @@
 @rem:36rem;
 
+img{
+    vertical-align: top;
+}
+
 .single_img{
   img{
     width:660/@rem !important;
@@ -57,6 +61,7 @@
 
 .roll_box{
   width:680/@rem;
+  margin-top:40/@rem;
   overflow: hidden;
   position: relative;
   text-align: left;
@@ -89,11 +94,18 @@
   }
 }
 .border_decorate{
-  img{
-    width:320/@rem;
-    padding:5/@rem;
-    border:1px dashed #76c6bf;
-    border-radius:10/@rem;
+  li{
+      width:330/@rem;
+      float:left;
+      img{
+        width:320/@rem;
+        padding:5/@rem;
+        border:1px dashed #76c6bf;
+        border-radius:10/@rem;
+      }
+  }
+  li:nth-child(2n){
+      margin-left:18/@rem;
   }
 }
 

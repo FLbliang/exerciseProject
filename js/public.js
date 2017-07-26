@@ -46,7 +46,7 @@
 		endX = ev.changedTouches[0].clientX - oShow.offsetLeft;
 		moveX = endX - startX;
 		if(!moveFlag) {
-			if(Math.abs(endX - startX) > 10) {
+			if(Math.abs(endX - startX) > 5) {
 				judgeX = true;
 			} else {
 				judgeX = false;
