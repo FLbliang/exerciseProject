@@ -3,8 +3,9 @@ img {
 }
 .single_img img {
   width: 18.33333333rem !important;
-  padding: 0.27777778rem;
+  padding: 0.25rem;
   border-radius: 0.27777778rem;
+  border: 0.02777778rem dashed #76c6bf;
 }
 .double_img {
   overflow: hidden;
@@ -96,7 +97,7 @@ img {
   border-radius: 0.27777778rem;
 }
 .border_decorate li:nth-child(2n) {
-  margin-left: 0.5rem;
+  margin-left: 0.44444444rem;
 }
 .professionalSystem {
   margin-bottom: 1.11111111rem;
