@@ -70,7 +70,7 @@ window.onload = function() {
 			endX = startM - startX;
 
 			if(!moveFlag) {
-				if(Math.abs(endX) > 2) {
+				if(Math.abs(endX) > 10) {
 					judgeX = true;
 				} else {
 					judgeX = false;
@@ -112,7 +112,6 @@ window.onload = function() {
 
 			aDiv[this.index + 1].style.display = "block";
 			if(this.index + 1 == 2) {
-				console.log(aDiv[2].style.display);
 				touchMoveBottom();
 
 			}
@@ -127,8 +126,6 @@ window.onload = function() {
 		var about_Branch = document.querySelector(".about .about_Branch");
 		var oUl = about_Branch.querySelector("ul");
 
-		console.log(oUl.offsetHeight)
-		console.log(about_Branch.offsetHeight)
 		about_Branch.addEventListener("touchstart", start, true); //注册事件
 		about_Branch.addEventListener("touchmove", move, true); //注册事件
 
@@ -147,18 +144,16 @@ window.onload = function() {
 		function move(ev) {
 			var oEvent = ev || event;
 			ev.cancelBubble = true;
-			oEvent.preventDefault();
 			startM = oEvent.targetTouches[0].clientY;
 			endX = startM - startX;
 			if(navL + endX >= 0) {
 				oUl.style.top = 0 + "px";
-				//              console.log("yes1")
 			} else if(navL + endX <= about_Branch.offsetHeight - oUl.offsetHeight) {
 				oUl.style.top = (about_Branch.offsetHeight - oUl.offsetHeight) + "px";
-				//              console.log("yes2")
+				
 			} else {
+				oEvent.preventDefault();
 				oUl.style.top = endX + navL + "px";
-				//              console.log("yes3")
 
 			}
 

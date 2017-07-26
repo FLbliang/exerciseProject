@@ -150,10 +150,9 @@ window.onload = function() {
 
 				var oEvent = ev || event;
 				endX = oEvent.changedTouches[0].clientX - parseInt(getStyle(this, "left"));
-
 				if(!moveFlag) {
-					if(Math.abs(endX - startX) > 2) {
-
+					if(Math.abs(endX - startX) > 3) {
+				
 						judgeX = true;
 					} else {
 						judgeX = false;
